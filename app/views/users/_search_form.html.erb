@@ -1,0 +1,14 @@
+<li class = "align-bottom">
+	<%= form_tag(search_path, method: :get, class: 'search-form') do %>
+	  		Search user by nickname:  <%= text_field_tag  :nick %>
+	  		<%= submit_tag 'Search' ,name: 'search_commit' , class: 'search-submit'%>
+	<% end %>
+</li>
+
+<!-- Search form 
+<form class="form-inline md-form form-sm">
+    <input class="form-control form-control-sm mr-3 w-75" type="text" placeholder="Search" aria-label="Search">
+    <i class="fa fa-search" aria-hidden="true"></i>
+</form>
+
+-->

@@ -1,0 +1,6 @@
+
+<% if notification.category == 'score' %>
+	<%= link_to notification.actor.nickname+' has just scored '+notification.new_best_score.to_s, notification , class: 'dropdown-item list-group-item'%>
+<% elsif notification.category == 'follower' %>
+	<%= link_to notification.actor.nickname+' has started following you', notification, class: 'dropdown-item list-group-item'%>
+<% end %>

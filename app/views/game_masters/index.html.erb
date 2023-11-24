@@ -1,0 +1,85 @@
+<% provide(:title, 'Master panel') %>
+<h1 id= "titolostore"> Game Master Panel </h1>
+<div class="container">
+	<div class="row">
+		<div class="col-sm-7 users-list">
+			<h3> All Users </h3>
+			<ul class="users bordi list-unstyled">
+			    <%= render @users %>
+			    <%= will_paginate @users %>
+
+			</ul>
+
+			
+		</div>
+	
+		<div class="col-sm-5 banned-list">
+			<h3>Banned list</h3>
+			<ul class="users bordi list-unstyled">
+				<%= render @banned_user %>
+				<%= will_paginate @banned_user%>
+			</ul>
+			
+		</div>
+
+
+		<div class="col-sm-5 request-list">
+			<h3>Request of permanent ban </h3>
+			<ul class="users bordi list-unstyled">
+				<%= render @request_ban %>
+				<%= will_paginate @request_ban %>
+			</ul>
+			
+		</div>
+	</div>
+	<div class="row">
+	</div>
+	<div class="row">
+	</div>
+
+		<br><br>
+    	<div class="row">
+
+		    <div class="col-md-3">
+		      <div class="card-counter info">
+		        <i class="fa fa-users"></i>
+		        <span class="count-numbers"><%= User.count %></span>
+		        <span class="count-name">Users</span>
+		      </div>
+	    	</div>
+
+	    	<div class="col-md-3">
+		      <div class="card-counter primary">
+		        <i class="fa fa-code-fork"></i>
+		        <span class="count-numbers"><%= User.where(gm: true).count %></span>
+		        <span class="count-name">Game Master</span>
+		      </div>
+		    </div>
+
+	    	<div class="col-md-3">
+		      <div class="card-counter danger">
+		        <i class="fa fa-ticket"></i>
+		        <span class="count-numbers"> <%= Ban.where(request: false).count %></span>
+		        <span class="count-name">Users Banned</span>
+		      </div>
+		    </div>
+
+		    <div class="col-md-3">
+		      <div class="card-counter success">
+		        <i class="fa fa-database"></i>
+		        <span class="count-numbers"> <%= Score.count %></span>
+		        <span class="count-name">Scores</span>
+		      </div>
+		    </div>
+
+  		</div>
+
+
+	<div class="row"><hr>
+		<div class ="col-4 suspend text-right">
+			<small>powerd by GF of Nardomen's site&copy; </small>
+
+		</div>
+
+	</div>
+</div>

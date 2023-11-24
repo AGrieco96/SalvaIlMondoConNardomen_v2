@@ -1,0 +1,46 @@
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-6 col-md-4 col-md-offset-4">
+        	<br><br>
+            <h2 class="text-center"> Login </h2>
+            <h1 class="text-center login-title">Login to continue with Nardomen</h1>
+            <div class="account-wall">
+               <%= image_tag('logo_login.png', alt:"Ruby on rails", class:"profile-img") %> 
+
+               <%= form_for(resource, as: resource_name, url: session_path(resource_name), :html => {class:"form-signin new_user"} ) do |f| %>
+                  <!--<%= f.label :email %><br />-->
+                  <%= f.email_field :email,autofocus: true, autocomplete: "email" , class:"form-control"%>
+                  <!--<%= f.label :password %><br />-->
+                  <%= f.password_field :password, autocomplete: "current-password" ,class:"form-control"%>
+               
+
+   			 		<% if devise_mapping.rememberable? -%>
+      					<div class="custom-control custom-checkbox pull-left">
+        						<%= f.check_box :remember_me ,class:"custom-control-label"%>
+        						<%= f.label :remember_me %>
+     						</div>
+    					<% end -%>
+
+
+                  <%= f.submit "Log in" , class:"btn btn-lg btn-primary btn-block" %>
+
+               	<!-- Register -->
+               	<br>
+               	<div class="text-center">
+  				 	      <p>Not a member?
+  		    		   	  <%= link_to 'Register' , new_user_registration_path %>
+   		  			    </p>
+                  <p>
+                    <%= link_to "Forgot your password?", new_password_path(resource_name) %><br />
+                  </p>
+   		 	          <!-- Social login -->
+    			 		    <p>or sign in with:</p>
+                  <%= link_to "", omniauth_authorize_path(resource_name, 'facebook'), class: "light-blue-text mx-2 fa fa-facebook" , type: "button"%>
+                  <%= link_to "", omniauth_authorize_path(resource_name, 'twitter'), class: "light-blue-text mx-2 fa fa-twitter" , type: "button"%>
+      				</div>
+               <% end %>
+            </div>
+        </div>
+    </div>
+</div>

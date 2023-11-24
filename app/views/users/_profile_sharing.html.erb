@@ -1,0 +1,43 @@
+<!--
+<span>
+    
+        <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+        <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+        <li><a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
+        <li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+    
+
+
+
+    <p class="social-share-button" data-title="Hey! 
+        Look at my profile! Hurry up and join me at Nardomen! 
+        " data-img="" data-url="http://localhost:3000/users/1" data-desc="" data-via="">
+        <a rel="nofollow " data-site="facebook" class="ssb-icon ssb-facebook fa fa-facebook" onclick="return SocialShareButton.share(this);" title="Share to Facebook" href="#"></a>
+
+        <a rel="nofollow " data-site="twitter" class="ssb-icon ssb-twitter fa fa-twitter" onclick="return SocialShareButton.share(this);" title="Share to Twitter" href="#"></a>            
+    </p>
+</span>
+-->
+
+<span>
+    <ul>
+        <%= content_tag :li, class: "social-share-button", :"data-title"=> "Look at my profile! Hurry up and join me at Nardomen!", :"data-img" => "", :"data-url" => user_url(current_user), :"data-desc"=>"", :"data-via"=>"" do %> 
+
+            <%= link_to '#' , class: "ssb-icon ssb-facebook", :onclick => "return SocialShareButton.share(this);", :title => "Share to Facebook" , :"data-site" => "facebook" , :rel => "nofollow" do %>
+
+                <i class="fa fa-facebook" aria-hidden="true"></i>
+
+            <% end %> <!-- </a> -->
+        <% end %> <!-- </li> -->
+
+        <%= content_tag :li, class: "social-share-button", :"data-title"=> "Look at my profile! Hurry up and join me at Nardomen!", :"data-img" => "", :"data-url" => user_url(current_user), :"data-desc"=>"", :"data-via"=>"" do %> 
+
+            <%= link_to '#' , class: "ssb-icon ssb-twitter", :onclick => "return SocialShareButton.share(this);", :title => "Share to Twitter" , :"data-site" => "twitter" , :rel => "nofollow" do %>
+
+                    <i class="fa fa-twitter" aria-hidden="true"></i>
+            <% end %> <!-- </a> -->
+        <% end %><!-- </li> -->
+
+    </ul>
+
+</span>

@@ -1,0 +1,27 @@
+<li class = 'score-elem list-unstyled list-inline'>
+
+	<% if current_user?(score.user)%>
+				<span class = 'score-user'> You </span>
+		<span class = 'score-content'> scored <%= score.score %> </span>
+		<span class = 'score-time'> Scored <%= time_ago_in_words(score.created_at) %> ago </span>
+
+		<%= content_tag :span, class: "social-share-button", :"data-title"=> "Hey! I just scored #{score.score}! Come and try to do better!", :"data-img" => "", :"data-url" => user_url(current_user), :"data-desc"=>"", :"data-via"=>"" do %> 
+			<%= link_to '#' , class: "ssb-icon ssb-facebook", :onclick => "return SocialShareButton.share(this);", :title => "Share to Facebook" , :"data-site" => "facebook" , :rel => "nofollow" do %>
+				<i class="fa fa-facebook"></i>
+			<% end %>
+
+			<%= link_to '#' , class: "ssb-icon ssb-twitter", :onclick => "return SocialShareButton.share(this);", :title => "Share to Twitter" , :"data-site" => "twitter" , :rel => "nofollow" do %>
+					<i class="fa fa-twitter"></i>
+			<% end %>
+		<% end %>
+		<br>
+	<% elsif @user %>
+		<span class = 'score-content'> Has scored <%= score.score %> </span>
+		<span class = 'score-time'> Scored <%= time_ago_in_words(score.created_at) %> ago </span>
+	<% else %>
+		<span class = 'score-user'><%= link_to score.user.nickname, score.user %> </span>
+		<span class = 'score-content'> has scored <%= score.score %> </span>
+		<span class = 'score-time'> Scored <%= time_ago_in_words(score.created_at) %> ago </span>
+	<% end %>
+	<br/>
+</li>

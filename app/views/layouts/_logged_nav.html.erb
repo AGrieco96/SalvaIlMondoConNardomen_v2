@@ -1,0 +1,37 @@
+<ul class="nav navbar-nav navbar-right">
+	<li class = "nav-item"><p class="glyphadapt"><span class ="glyphicon glyphicon-home"><%= link_to 'Home' , home_path, id:"logstyle" %> </span><p></li>
+	<li class = "nav-item">
+		<p class="glyphadapt"><span class ="glyphicon glyphicon-expand"><%= link_to 'Game' , game_path ,id:"logstyle" %> </span>
+		</p>
+	</li>
+	<li class = "nav-item"><p class="glyphadapt"><span class="glyphicon glyphicon-shopping-cart"><%= link_to 'Store' , store_path ,id:"logstyle" %></span></p></li>
+	<li class = "nav-item"><p class="glyphadapt"><span class="glyphicon glyphicon-wrench"><%= link_to 'GameSetting', settings_path ,id:"logstyle" %></span></p></li>
+	<li class = "nav-item"><p class="glyphadapt"><span class="glyphicon glyphicon-user"><%= link_to 'Profile' , current_user ,id:"logstyle" %></span></p></li>
+	<li class = "nav-item"><p class="glyphadapt"><span class="glyphicon glyphicon-pencil"><%= link_to 'Edit profile' , edit_user_registration_path ,id:"logstyle" %></span></p></li>	
+	<li class = "nav-item"><p class="glyphadapt"><span class ="glyphicon glyphicon-log-out"><%= link_to 'Logout', destroy_user_session_path , method: :delete ,id:"logstyle" %></span></p></li>
+</ul>
+
+
+<ul class="nav navbar-nav navbar-left" style= 'padding-top:15px'>
+	<%= render 'users/search_form' %>
+</ul>
+
+<ul class="nav navbar-nav navbar-right">
+
+	<% if current_user.gm? %>
+		<li class = "nav-item"><p class="glyphadapt"><span class="glyphicon glyphicon-search"><%= link_to 'Master panel', masterpanel_path ,id:"logstyle" %></span></p></li>
+	<% end %>
+
+	<% if current_user.gf? %>
+		<li class = "nav-item"><p class="glyphadapt"><span class="glyphicon glyphicon-search"><%= link_to 'Founder panel', founderpanel_path ,id:"logstyle" %></span></p></li>
+	<% end %>
+
+	<% if current_user.provider == 'facebook' %>
+		<li class = "nav-item"><p class="glyphadapt"><span id='fb-friend' class="glyphicon glyphicon-thumbs-up align-bottom"><%= link_to 'FB friends' , find_path ,id:"logstyle" %></span></p></li>
+	<% end %>  
+
+
+	<%= render 'layouts/notification_butt' %>
+
+</ul>
+

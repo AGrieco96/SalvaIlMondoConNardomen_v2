@@ -1,0 +1,25 @@
+<% skins_array = @user.skins.map { |skin| [skin.name, skin.id] } %>
+<% enemies_array = @user.enemies.map { |enemy| [enemy.name, enemy.id] } %>
+<% swords_array = @user.swords.map { |sword| [sword.name, sword.id] } %>
+<% landscapes_array = @user.landscapes.map { |landscape| [landscape.name, landscape.id] } %>
+
+<%= form_tag( "/settings" , method: "post" , class: 'settings-form') do %>
+
+	<span> Select your skin: </span>
+	<%= select_tag(:skin,  options_for_select(skins_array , @user.skin.id ), class: 'skin-selector') %>
+	<br/>
+	<span> Select your enemy's skin: </span>
+	<%= select_tag(:enemy,  options_for_select(enemies_array , @user.enemy.id ), class: 'enemy-selector') %>
+	<br/>
+	<span> Select your sword: </span>
+	<%= select_tag(:sword,  options_for_select(swords_array , @user.sword.id ), class: 'sword-selector') %>
+	<br/>
+	<span> Select your landscape: </span>
+	<%= select_tag(:landscape,  options_for_select(landscapes_array , @user.landscape.id ), class: 'landscape-selector') %>
+	<br/>
+
+	<%= submit_tag("Save changes", class: 'settings-submit')  %>
+	<br/>
+	<br/>
+
+<% end %>

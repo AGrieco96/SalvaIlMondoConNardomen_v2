@@ -1,0 +1,46 @@
+
+<% if !@user.has_item?(item) %>
+	<%= form_tag("/store", method: "post") do %>
+  		<div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
+            <div class="db-wrapper">
+                <div class="db-pricing-seven"> 
+                    <ul>
+                        <li class="price">
+                            <!-- Inserimento immagine -->
+                            <% item_image_path = 'image_store/'+item.name+'.png' %>
+                            <%= image_tag(item_image_path) %><br>
+                            <%= item.name %> <br>
+                            Price: <%= item.price%> <!-- inserire moneta game -->
+                        </li>
+						<li> Required level <%= item.level%> <br>
+                            <% if item.skin? %>
+                                <% if item.level <= 3 %>
+                                    <small><small> Speed Bonus 15% </small></small>
+                                <% elsif item.level >= 7 %>
+                                    <small><small>Speed Bonus 30% </small></small>
+                                <%end %>
+                            <% elsif item.sword? %>
+                                <% if item.level <= 3 %>
+                                    <small><small> You can kill 3 enemy </small></small>
+                                <% elsif item.level == 7 %>
+                                    <small><small> You can kill 7 enemy</small></small>
+                                <% elsif item.level > 7 %>
+                                    <small><small> You can kill a lot of enemy </small></small>
+                                <% end %>
+                            <%end %>
+                        </li>
+						
+                    </ul>
+                    <div class="pricing-footer">
+                    	<%= hidden_field_tag(:item, item.name) %>
+                    	<% if @user.can_buy?(item) %>
+							<%= submit_tag("BUY" , id: item.name) %><br/><br/>
+						<% else %>
+							<%= submit_tag "BUY", id: item.name, disabled: true ,class:"btn btn-default btn-lg"%>
+						<% end %>
+                    </div>
+				</div>
+			</div>
+		</div>
+	<% end %>
+<% end %>

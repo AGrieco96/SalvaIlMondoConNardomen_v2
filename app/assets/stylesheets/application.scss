@@ -1,0 +1,213 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+@import "static_pages";
+@import "users";
+@import "stores";
+@import "games";
+@import "game_founders";
+
+
+/*=============================================================
+    Authour Nardomen's
+
+    License: GPL    
+========================================================  */
+
+/*Per ovvi motivi di leggibilità alcuni tag css che sono stati inseriti principalmente per alcune specifiche pagine
+si possono trovare all'interno del file stylesheet con lo stesso nome della pagina. Ad esempio i scss che riguarderanno il game
+si troveranno all'interno del file game.scss per questo i vari @importa*/
+
+
+/*oss: ricordarsi che dentro users.scss c'è il tag .btn globale ai bottoni modificato quindi per qualsiasi ogni modifica ai bottoni prego
+andare li.*/
+
+/*body of all pages*/
+/*universal */
+
+body {
+  font: 15px Lato, sans-serif;
+  line-height: 1.4;
+  color: #818181;
+  padding-top:90px; 
+  background-color:#fff;
+  margin:0;
+  padding:0;
+
+}
+
+h2 {
+
+    font-family: 'Raleway',sans-serif; 
+    font-size: 24px;
+    text-transform: uppercase;
+    color: #2a2a2a;
+    font-weight: 600;
+    margin-bottom: 30px;
+}
+h4 {
+    font-size: 19px;
+    line-height: 1.375em;
+    color: #2a2a2a;
+    font-weight: 400;
+    margin-bottom: 30px;
+}  
+
+textarea {
+  resize: vertical;
+}
+
+
+
+/*  NAVBAR  */  
+/*CSS PER LA PAGINA DI RESULT OF SEARCHBAR*/
+.spaziosearch{
+  padding-top:150px;
+}
+.glyphadapt{
+  padding-top:10px;
+  color:#fff;
+  margin-right: 4px;
+}
+
+
+.nav-item::after{content:'';display:block;width:0px;height:4px;background:#0aa2f1;transition: 0.3s;float:center;}
+.nav-item:hover::after{width:100%;}
+.nav-itemf::after{content:'';display:block;width:0px;height:4px;background:#0aa2f1;transition: 0.3s;}
+.nav-itemf:hover::after{width:30%;}
+
+.navbar {
+    margin-bottom: 0;
+    background-color: #2a2a2a;
+    z-index: 9999;
+    border: 0;
+    font-size: 12px !important;
+    line-height: 1.42857143 !important;
+    letter-spacing: 4px;
+    border-radius: 0;
+}
+
+.navbar li a {
+  color: black;
+}
+
+/*adding for logo*/
+#logo {
+  margin-right: 10px;
+  font-size: 1.7em;
+  color: #ffffff;
+  text-transform: uppercase;
+  letter-spacing: -1px;
+  padding-top: 30px;
+  font-weight: bold;
+  &:hover {
+    color: #ffffff;
+    text-decoration: none;
+  }
+}
+
+
+#logstyle{
+  color: #f8f8f8;
+  font-family: 'Raleway',sans-serif; 
+  font-size: 12px; 
+  font-weight: 500; 
+  line-height: 30px; 
+  margin: 0 0 24px; 
+  padding-left:3px;
+  padding-right:3px;
+}
+a:hover, a:visited, a:link, a:active
+{
+    text-decoration: none;
+}
+
+
+/* Footer */
+@import url('https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
+section {
+    padding: 60px;
+}
+.loghifooter{
+	position:absolute;
+	right:0;
+}
+.container2{
+	position:relative;
+}
+#hr_class{
+	left:0;
+}
+.complete{
+   	bottom:0;
+   	width:100%;
+  /* Height of the footer */
+}
+
+#footer {
+    background: #2a2a2a !important;
+}
+#footer h5{
+	padding-left: 10px;
+    border-left: 3px solid #eeeeee;
+    padding-bottom: 6px;
+    margin-bottom: 20px;
+    color:#ffffff;
+}
+#footer a {
+    color: #ffffff;
+    text-decoration: none !important;
+    background-color: transparent;
+    -webkit-text-decoration-skip: objects;
+}
+#footer ul.social li{
+	padding: 3px 0;
+}
+#footer ul.social li a i {
+    margin-right: 5px;
+	font-size:25px;
+	-webkit-transition: .5s all ease;
+	-moz-transition: .5s all ease;
+	transition: .5s all ease;
+}
+#footer ul.social li:hover a i {
+	font-size:30px;
+	margin-top:-10px;
+}
+
+#footer ul.quick-links li{
+	padding: 3px 0;
+	-webkit-transition: .5s all ease;
+	-moz-transition: .5s all ease;
+	transition: .5s all ease;
+}
+#footer ul.quick-links li:hover{
+	padding: 3px 0;
+	margin-left:0px;
+	font-weight:700;
+}
+
+
+@media (max-width:767px){
+	#footer h5 {
+    padding-left: 0;
+    border-left: transparent;
+    padding-bottom: 0px;
+    margin-bottom: 10px;
+  }
+}
+
+/* Notifications and fb friends */
+
+#notif-dropdown{
+  padding-top: 7px;
+  padding-left: 10px;
+}
+
+#notif-par{
+  height: 33px;
+}
+
+
+
+
+

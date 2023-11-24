@@ -1,0 +1,10 @@
+<section class = 'fb-friends-section'>
+	<% if @friends.empty? %>
+		<span class = 'fb-friends-mess'> No Facebook friends to show </span>
+	<% else %>
+		<span class = 'fb-friends-mess'> Here a list of your facebook friends using Nardomen: </span>
+		<ul class = 'fb-friends-list'>
+			<%= render @friends %>
+		</ul> 
+	<% end %>
+</section>

@@ -1,0 +1,18 @@
+<li class="btn-group dropright nav-item" id='notif-dropdown'>
+			
+	<p class="glyphadapt dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id='notif-par'>
+		<span class ="glyphicon glyphicon-bell ">
+			<span><a style='color: white' id='notif-text'>Notifications</a><span class="badge badge-secondary"><%= current_user.notif.count unless current_user.notif.empty?%></span></span>
+		</span>
+	</p>
+  	
+  	<div class="dropdown-menu dropdown-menu-left" >
+  		<!-- Dropdown menu links -->		
+		<% if current_user.notif.empty? %>
+			<span id='no-notif-span'>No notifications</span>
+		<% else %>
+			<span><%= render current_user.notif %></span>
+		<% end %>
+  	</div>
+
+</li>

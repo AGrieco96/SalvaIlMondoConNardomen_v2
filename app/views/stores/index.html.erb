@@ -1,0 +1,43 @@
+<%= provide :title, 'Store' %>
+<div class="container">
+	<div class="row text-center">
+		<div class="col-md-12">
+			<br><br>
+			<h1 id="titolostore"> This is the Nardomen store</h1>
+			<h3>
+				Buy new stuff to improve your game esperience<br><br>
+				Special thanks from Nardomen's developers
+			</h3>
+		</div>
+	</div>        
+	<section class = 'user_data text-right'>
+		<h2><span> Money: <%= @user.game_datum.money %> </span><span>Level: <%= @user.game_datum.level %></span></h2>
+	</section>
+
+	<section class='item-section'>
+		<!-- SKIN -->
+		<h3>Skins</h3>
+		<div class = 'item-list row'>
+			<%= render @skins %>
+		</div>
+
+		<!-- SKIN ENEMY -->
+		<h3>Enemies skins</h3>
+		<div class = 'item-list row'>
+			<%= render @enemies %>
+		</div>
+
+		<!-- SWORD LIST -->
+		<h3>Swords</h3>
+		<div class = 'item-list row'>
+			<%= render @swords %>
+		</div>
+
+		<!-- LANDSCAPE LIST -->
+		<h3>Landscapes</h3>
+		<div class = 'item-list row'>
+			<%= render @landscapes %>
+		</div>
+	</section>
+
+</div>

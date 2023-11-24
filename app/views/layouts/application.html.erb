@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title> <%= full_title(yield :title) %> </title>
+    <%= render 'layouts/default' %>
+  </head>
+
+  <body>
+    <%= render 'layouts/header' %>
+    <br><br>
+    <%= render 'layouts/alert' %>
+    <div style="height: 70px;"></div>
+    <div class="container">
+      <%= yield %>
+    </div> 
+  </body>
+  <br><br><br>
+    <%= render 'layouts/footer' %>
+</html>

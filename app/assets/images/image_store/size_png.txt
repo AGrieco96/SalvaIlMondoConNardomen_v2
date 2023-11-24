@@ -1,0 +1,4 @@
+skin:			32x48
+enemy skin: 	32x48
+sword:			48x48
+landscape:		180x77

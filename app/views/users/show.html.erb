@@ -1,0 +1,56 @@
+<%= provide :title, @user.nickname %>
+<div class="text-center">
+    <h2 id="nameuser"> <%= @user.nickname %> 's Profile </h2>
+</div>
+
+<div class="card">
+    <div class="box">
+        <div class = 'img'>
+            <%= image_tag(@user.avatar.url, size: "300",class:"img-thumbnail rounded mx-auto d-block")%> 
+        </div>
+        <h2> <%= @user.nickname %> <br> 
+            <span>
+                <%if @user.gf? %>
+                    Game Founder
+                <%elsif @user.gm? %>
+                    Game Master
+                <%else %>
+                    Gamer
+                <% end %>
+            </span>
+        </h2>
+        <%= render 'follow_form' if user_signed_in? %>
+        <p> <%= render 'stats' %> </p>
+        <hr id="breakline">
+        <% if current_user?(@user) %>
+            <%= render 'profile_sharing' %>
+        <% end %>
+        <%= render 'game_data' %>
+
+    </div>
+</div>
+
+<div class="text-center">
+    <br><br><br><br><br>
+    <br><br><br><br><br>        
+    <br><br><br><br><br>
+    <br><br><br><br><br> 
+    <br><br><br><br><br>
+    <br><br><br><br><br> 
+           
+    
+    <% if current_user?(@user) || current_user.following?(@user) || current_user.gm? || current_user.gf? %>
+        <section class = 'user-scores gamedata'>
+            <ul class = 'user-scores-list list-unstyled'>
+                <%= render @scores %>
+            </ul>
+            <%= will_paginate @scores %>
+        </section>  
+    <% else %>
+        <br><br><br><br><br>
+        <br><br><br><br><br> 
+    <% end %>
+</div>
+
+
+

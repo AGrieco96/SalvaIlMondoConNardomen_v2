@@ -1,0 +1,26 @@
+<nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span> 
+      </button>
+      	<%= link_to (image_tag 'logo_navbar.png',alt:"Ruby on Rails"),root_path %>
+      	<%= link_to "ardomen", root_path, id:"logo" %>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+        <% if user_signed_in? %>
+			    <%= render 'layouts/logged_nav' %>
+		    <% else %>
+			    <%= render 'layouts/not_logged_nav' %>
+		    <% end %>
+    </div>
+  </div>
+</nav>
+<br><br><br>
+
+
+
+
+

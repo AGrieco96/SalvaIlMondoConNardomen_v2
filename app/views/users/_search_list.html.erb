@@ -1,0 +1,15 @@
+<% if !@users.blank? && params[:nick] != '' %>
+	<span> Result for " <%= "#{params[:nick]}" %> " : </span>
+	<ul class = 'search-list'>
+		<%= render @users %>
+	</ul>
+	<%= @users = nil %>
+<% elsif params[:nick] == '' %>
+	<span> Please provide a nickname </span>
+	<ul class = 'search-list'> </ul>
+<% elsif  params[:nick] %>
+	<div class="noresult">
+		<span> No result to display for "<%= "#{params[:nick]}" %>"</span>
+		<ul class = 'search-list'> </ul>
+	</div>
+<% end %>

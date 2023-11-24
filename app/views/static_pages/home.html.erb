@@ -1,0 +1,13 @@
+<br><br><br>
+<h1 class="nardomen">Nardomen</h1>
+
+<div class= "center home">
+	<% if user_signed_in? %>
+		<%= render 'logged_home' %>
+	<% else %>
+		<%= render 'not_logged_home' %>
+	<% end %>
+
+</div>
+
+<br><br>

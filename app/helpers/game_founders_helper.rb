@@ -1,0 +1,2 @@
+module GameFoundersHelper
+end

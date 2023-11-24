@@ -1,0 +1,16 @@
+<div class="gamedata">
+	Level: <%= @user.level %> <br/>
+	<% if current_user?(@user) %>
+		Money: <%= @user.money %> <br/>
+	<% end %> 
+	Best score: 
+	<% if @user.scores.any? %>
+		<%= @user.best_score %> <br/>
+		Total scores: <%= @user.scores.count %>
+	<% else %>
+		0
+		Total scores: 0
+	<% end %> <br>
+	Exp: <%= @user.exp %>
+	<br>
+</div>

@@ -1,0 +1,29 @@
+<% if ban.request %>
+	<li class='user-list-elem'>
+		<%= link_to ban.user.nickname, ban.user , class: 'user-link linkbello' %>
+		  <% if current_user.gf? %>
+		  	<%= form_tag("/approveban",method:"post") do %>
+		  		<%= hidden_field_tag(:user, ban.user.id) %>
+		  		<div class="alert alert-danger">
+		  			<strong> Danger: </strong> Listen in the depth of your mind for this decision<br>
+			  		Approve ban: <%= radio_button_tag "approve","Ban" %>
+			  		Cancel request: <%= radio_button_tag "approve","Cancel" %>
+			  		<%= submit_tag "Save Changes", class:"btn btn-xs btn-danger", name: 'commit-req'+ban.id.to_s %>
+			  	</div>
+		  	<% end %>
+		<% end %>
+	</li>
+<% else %>
+	<li class = 'user-list-elem'>
+	  <%= link_to ban.user.nickname, ban.user , class: 'user-link linkbello' %>
+	  <% if current_user.gf? %>
+	  	<%= form_tag("/removeban",method:"post") do %>
+	  		<div class="alert alert-danger">
+	  			<strong> Danger: </strong> Are you fine? <br>
+			  	<%= hidden_field_tag(:user, ban.user.id) %>
+			  	<%= submit_tag "RemoveBan", class:"btn btn-xs btn-danger", name: 'commit-remove'+ban.id.to_s %>
+			</div>
+	  	<% end %>
+	  <% end %>
+	</li>
+<% end %>

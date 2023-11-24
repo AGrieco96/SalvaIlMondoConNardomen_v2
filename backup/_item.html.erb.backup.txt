@@ -1,0 +1,19 @@
+<% if !@user.has_item?(item) %>
+	<li class = 'item-elem'> 
+		<%= form_tag("/store", method: "post") do %>
+			
+			<span> Item name: <%= item.name %> </span> <br/>
+			<span> Required level <%= item.level%> or up</span><br/>
+			<span> Price: <%= item.price%> </span><br/>
+			
+			<%= hidden_field_tag(:item, item.name) %>
+
+			<% if @user.can_buy?(item) %>
+				<%= submit_tag("BUY" , id: item.name) %><br/><br/>
+			<% else %>
+				<%= submit_tag "BUY", id: item.name, disabled: true %><br/><br/>
+			<% end %>
+
+		<% end %>
+	</li>
+<% end %>

@@ -1,0 +1,72 @@
+<footer class="complete">
+<section id="footer">
+	<div class="container">
+		<div class="row">
+			<%= render 'layouts/share' %>
+		</div> 	
+
+		<div class = "row text-left text-xs-center text-sm-left text-md-left">
+			<div class="col-xs-12 col-sm-4 col-md-4">
+				<ul class="list-unstyled quick-links">
+					<li class = "nav-itemf"> <%= link_to "About", about_path %> </li>
+					<li class = "nav-itemf"> <%= link_to "Contact", contact_path %> </li>
+					<li class = "nav-itemf"> <%= link_to "Other project", other_path %> </li>
+				</ul>
+			</div>
+
+
+			<!-- cols vuote per spacing site -->
+			<div class="col-xs-12 col-sm-4 col-md-4">
+			</div>
+
+			<% if !user_signed_in? %>
+				<div class="col-xs-12 col-sm-4 col-md-4">
+					<br>
+					<ul class="list-unstyled container2">
+						<li></li>
+						<li class="loghifooter">
+							<button type="button" class="btn btn-primary"><%= link_to "EHI DON'T FORGET TO SIGN UP", new_user_registration_path %> </button>
+						</li>
+						<li></li>
+						<li></li>
+					</ul>
+				</div>
+			<% end %>
+
+		</div>
+
+		<div class="row">
+			<div class="col-xs-12 col-sm-12 col-md-12 mt-2 mt-sm-5">
+				<hr id="hr_class">
+			</div>	
+		</div>	
+		<div class="row">
+			<div class="col-xs-12 col-sm-12 col-md-12 mt-2 mt-sm-2 text-white">
+				<span> &copy; All right reserved to GNM SNC </span>
+			</div>
+			</hr>
+		</div>	
+
+		<div class = "row">
+			<div class="col-xs-12 col-sm-4 col-md-4">
+				<br>
+				<span><%= link_to "Privacy Policy" , privacy_path %></span>
+			</div>
+
+								<!-- cols vuote per spacing site -->
+		<div class="col-xs-12 col-sm-4 col-md-4">
+		</div>			
+		<div class="col-xs-12 col-sm-4 col-md-4 container2">
+			<ul class="list-unstyled list-inline loghifooter">
+				<li><%= link_to (image_tag 'logo_footer.png',alt:"Ruby on Rails"),root_path %> </li>
+				<li><%= link_to (image_tag 'logo_phaser.png',alt:"Phaser"),"https://phaser.io/" %> </li>
+			</ul>
+		</div>
+
+		</div>
+
+
+	</div>
+</section>
+	<!-- ./Footer -->
+</footer>

@@ -1,0 +1,37 @@
+index.html.erb.backup
+<%= provide :title, 'Store' %>
+
+<h2> This is the Nardomen store</h2>
+<h3> Buy new stuff to improve your game esperience</h3>
+
+<section class = 'user_data'>
+	<span> Money: <%= @user.game_datum.money %> </span> <span> Level: <%= @user.game_datum.level %></span>
+</section>
+
+<section class = 'item-section'>
+	<h4>Skins</h4>
+	<ul class = 'item-list'>
+		<%= render @skins %>
+	</ul>
+</section>
+
+<section class = 'item-section'>
+	<h4>Enemies skins</h4>
+	<ul class = 'item-list'>
+		<%= render @enemies %>
+	</ul>
+</section>
+
+<section class = 'item-section'>
+	<h4>Swords</h4>
+	<ul class = 'item-list'>
+		<%= render @swords %>
+	</ul>
+</section>
+
+<section class = 'item-section'>
+	<h4>Landscapes</h4>
+	<ul class = 'item-list'>
+		<%= render @landscapes %>
+	</ul>
+</section>

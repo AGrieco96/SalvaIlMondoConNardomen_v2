@@ -1,0 +1,53 @@
+<% if Ban.find_by(user: user).nil? %>
+	<li class = 'user-list-elem'>
+	  	<%= link_to user.nickname, user , class: 'user-link linkbello' %>
+	  	<% if (current_user.gm? || current_user.gf?) && !user.gf? && !current_user?(user)%>
+	  		<br>
+	  		<%  if current_user.gf? %>
+	  			<%= form_tag("/fban",method:"post") do %>
+	  				<%= hidden_field_tag(:user, user.id, class: 'founder-ban-form') %>
+		  			<div class="alert alert-info">
+			  			<strong> Info: </strong> Ban an user<br>
+			  			<%= label_tag :days%>
+		            	<%= number_field_tag :days, nil, { :min => 0, class:"form-control founder-days-ban #{user.id}-days", autofocus: true, id:"#{user.id}-days" } %>
+			 			<%= label_tag 'Permanent ban?'%>
+			  			<%= check_box_tag :permanent, nil, false, class:"custom-control-label founder-ban-perm #{user.id}-perm", id: user.id.to_s+'-permanent' %>
+			  			<%= submit_tag "Ban", class:"btn btn-primary btn-smfounder-ban-submit #{user.id}-ban-submit" , name: 'commit-ban'+user.id.to_s  %>
+		  			</div>
+		  		<% end %>
+		  		<% if !user.gm? %>
+			  		<%= form_tag("/promote",method:"post") do %>
+			  			<%= hidden_field_tag(:user, user.id) %>
+			  			<div class="alert alert-warning">
+		  					<strong> Warning: </strong> Promote an user is an error bro <span class="glyphicon glyphicon-thumbs-down"></span><br>
+			  				<%= submit_tag "Promote to GM ",class:"btn btn-warning btn-sm #{user.id}-promote", name: 'promote'+user.id.to_s %>
+			  			</div>
+
+			  		<% end %>
+				<% else %>
+					<%= form_tag("/demote",method:"post") do %>
+			  			<%= hidden_field_tag(:user, user.id) %>
+			  			<div class="alert alert-info">
+			  				<strong> Info: </strong> If you want you can demote <span class="glyphicon glyphicon-thumbs-up"></span><br>
+			  			<%= submit_tag "Demote as a Gamer",class:"btn btn-primary btn-sm #{user.id}-demote", name: 'demote'+user.id.to_s %>
+			  			</div>
+			  		<% end %>
+				<% end %>
+
+	  		<% elsif %>
+	  			<%= form_tag("/mban",method:"post", class: 'master-ban-form') do %>
+			  		<%= hidden_field_tag(:user, user.id) %>
+			  		<div class="alert alert-warning">
+			  			<strong>Warning: </strong> if you are in this page, you know what you do <br>
+				  		<%= label_tag :days %>
+				  		<%= number_field_tag :days, nil, { :min => 0, class:"form-control master-days-ban #{user.id}-days", autofocus: true } %>
+				  		<%= label_tag 'Send a request for permanent ban'%>
+				  		<%= check_box_tag :request , nil, false, class:"custom-control-label master-ban-request #{user.id}-req" %>
+				  		<%= submit_tag "Ban", class:"btn btn-warning btn-smmaster-ban-submit #{user.id}-ban-submit" %>
+				  	</div>
+		  		<%  end %>
+			<%  end %>
+	  	<% end %>  
+	  	<hr>
+	</li>
+<% end %>
